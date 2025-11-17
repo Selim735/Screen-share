@@ -258,13 +258,13 @@ export default function ViewerView({ onBack }: ViewerViewProps) {
       <Card className="p-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-3xl font-bold">مشاهدة البث</h1>
+            <h1 className="text-3xl font-bold">Watch the live stream</h1>
             <p className="text-muted-foreground mt-1">
-              اتصل بالمذيع على الشبكة
+            Contact the broadcaster on the network
             </p>
           </div>
           <Button variant="outline" onClick={onBack}>
-            رجوع
+           Return
           </Button>
         </div>
 
@@ -335,12 +335,12 @@ export default function ViewerView({ onBack }: ViewerViewProps) {
                     {isFullscreen ? (
                       <>
                         <Minimize className="h-4 w-4" />
-                        خروج من ملء الشاشة
+                       Exit full screen
                       </>
                     ) : (
                       <>
                         <Maximize className="h-4 w-4" />
-                        ملء الشاشة
+                       Full screen
                       </>
                     )}
                   </Button>
@@ -352,7 +352,7 @@ export default function ViewerView({ onBack }: ViewerViewProps) {
           {/* Quality Selection */}
           {isConnected && (
             <div className="space-y-2">
-              <label className="text-sm font-medium">جودة الفيديو</label>
+              <label className="text-sm font-medium">Video quality</label>
               <div className="grid grid-cols-4 gap-2">
                 {(Object.entries(QUALITY_OPTIONS) as Array<[VideoQuality, typeof QUALITY_OPTIONS[VideoQuality]]>).map(
                   ([quality, config]) => (
@@ -383,15 +383,15 @@ export default function ViewerView({ onBack }: ViewerViewProps) {
               {isConnecting ? (
                 <>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  جاري الاتصال...
+                 Connecting...
                 </>
               ) : isConnected ? (
                 <>
                   <Signal className="h-4 w-4 mr-2" />
-                  متصل
+                 connected
                 </>
               ) : (
-                'الاتصال بالبث'
+                'Connect to the broadcast'
               )}
             </Button>
 
@@ -401,7 +401,7 @@ export default function ViewerView({ onBack }: ViewerViewProps) {
                 variant="destructive"
                 className="flex-1 h-11"
               >
-                قطع الاتصال
+               disconnect
               </Button>
             )}
           </div>
@@ -410,7 +410,7 @@ export default function ViewerView({ onBack }: ViewerViewProps) {
           {!isConnected && (
             <div className="bg-accent/5 border border-accent/20 p-4 rounded-lg">
               <p className="text-sm text-muted-foreground text-center">
-                انقر على "الاتصال بالبث" للبدء في مشاهدة الشاشة المشتركة
+               Click "Connect to broadcast" to start viewing the shared screen
               </p>
             </div>
           )}
